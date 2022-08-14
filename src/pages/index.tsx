@@ -1,85 +1,116 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+import { client } from "@/contentful/client";
+import {
+  IPositionListFields,
+  IProjectListFields,
+} from "@/types/generated/contentful";
+import { InferGetStaticPropsType, NextPage } from "next";
+import { Position } from "@/components/Position";
+import { Project } from "@/components/Project";
 
-const Home: NextPage = () => {
+export const getStaticProps = async () => {
+  const getPositionList = client.getEntry<IPositionListFields>(
+    "2GrZxy0No7mWazsNhou3Ez"
+  );
+
+  const getProjectList = client.getEntry<IProjectListFields>(
+    "6G0lD5lWI23RDAWE9XrU3G"
+  );
+
+  const [positionList, projectList] = await Promise.all([
+    getPositionList,
+    getProjectList,
+  ]);
+
+  const { currentPositions } = positionList.fields;
+  const { pastPositions } = positionList.fields;
+  const { projects } = projectList.fields;
+
+  return {
+    props: { currentPositions, pastPositions, projects },
+  };
+};
+
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  currentPositions,
+  pastPositions,
+  projects,
+}) => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{" "}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
+    <main className="mx-auto max-w-3xl px-4 pt-16 text-slate-900 xs:px-8">
+      <section>
+        <h1 className="text-3xl font-semibold md:text-4xl">
+          {"Hi, I'm Freeman."}
         </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{" "}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
+        <p className="mt-2 max-w-lg">
+          {
+            "I'm a CS student at the University of Waterloo and full stack engineer."
+          }
         </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <p className="mt-2 max-w-lg md:mt-0">
+          {"I build beautiful and performant applications end-to-end."}
+        </p>
+        <p className="mt-4">
+          {"My weapons of choice are: "}
+          <br />
+          <span className="font-bold text-blue-400">TypeScript</span> +{" "}
+          <span className="font-bold text-slate-900">Next.js</span> +{" "}
+          <span className="font-bold text-purple-400">Prisma</span> +{" "}
+          <span className="font-bold text-pink-400">GraphQL</span>
+        </p>
+      </section>
+      <div className="flex flex-col md:flex-row md:gap-12">
+        <section className="mt-12 md:w-1/2">
+          <h2 className="text-3xl font-semibold">Currently</h2>
+          <div className="mt-4 flex flex-col gap-4">
+            {currentPositions?.map((position) => (
+              <Position key={position.sys.id} {...position.fields} />
+            ))}
+          </div>
+        </section>
+        <section className="mt-12 md:w-1/2">
+          <h2 className="text-3xl font-semibold">Past</h2>
+          <div className="mt-4 flex flex-col gap-4">
+            {pastPositions?.map((position) => (
+              <Position key={position.sys.id} {...position.fields} />
+            ))}
+          </div>
+        </section>
+      </div>
+      <section className="mt-12">
+        <h2 className="text-3xl font-semibold">Work</h2>
+        <div className="mt-4 flex flex-col gap-6">
+          {projects.map((project) => (
+            <Project key={project.sys.id} {...project.fields} />
+          ))}
         </div>
-      </main>
+      </section>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
+      <section className="mt-12 mb-56 md:mb-32">
+        <h2 className="text-3xl font-semibold">Contact</h2>
+        <div className="mt-2 text-slate-700">
+          <p>Want to get in touch?</p>
+          <p className="mt-1">
+            Send an email to{" "}
+            <a
+              className="font-medium decoration-blue-400 decoration-2 underline-offset-2 outline-none hover:underline focus:underline"
+              href="mailto:hello@freemanjiang.com"
+            >
+              hello@freemanjiang.com
+            </a>{" "}
+            or shoot me a{" "}
+            <a
+              className="font-medium decoration-cyan-400 decoration-2 underline-offset-2 outline-none hover:underline focus:underline"
+              href="https://twitter.com/freemanxjiang"
+              target="_blank"
+              rel="noreferrer"
+            >
+              DM on Twitter
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+    </main>
   );
 };
 
