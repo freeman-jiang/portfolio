@@ -6,7 +6,8 @@
     "start": "next start",
     "lint": "next lint",
     "gen": "contentful-typescript-codegen --output src/types/generated/contentful.d.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "npm run gen"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
