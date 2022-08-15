@@ -9,7 +9,7 @@ export const Position = ({
 }: IPositionFields) => {
   return (
     <div>
-      <h4 className="md:text-lg">
+      <h4 className="text-lg">
         <span className="font-bold">{role}</span>
         {isFounder ? " of " : " at "}
         <a
@@ -21,9 +21,7 @@ export const Position = ({
           {companyName}
         </a>
       </h4>
-      {description && (
-        <p className="mt-1 text-sm text-gray-500 md:text-base">{description}</p>
-      )}
+      {description && <p className="mt-1 text-gray-500">{description}</p>}
     </div>
   );
 };
