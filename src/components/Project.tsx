@@ -27,7 +27,7 @@ export const Project = ({
 
   return (
     <div className="rounded-xl p-5 py-6 shadow-lg">
-      <div className="flex flex-col items-start justify-between gap-1 xs:flex-row xs:items-center xs:gap-0">
+      <div className="flex flex-row flex-wrap items-start justify-between gap-1 xs:items-center">
         <h5 className="text-lg font-bold md:text-xl">{name}</h5>
         {badgeName && (
           <div className="flex gap-3">

@@ -37,7 +37,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   projects,
 }) => {
   return (
-    <main className="mx-auto max-w-3xl px-4 pt-16 text-slate-900 xs:px-8">
+    <main className="mx-auto max-w-3xl px-4 pt-8 text-slate-900 xs:px-6 sm:px-8 md:pt-16">
       <section>
         <h1 className="text-3xl font-semibold md:text-4xl">
           {"Hi, I'm Freeman."}
