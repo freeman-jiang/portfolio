@@ -86,7 +86,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         </div>
       </section>
 
-      <section className="mt-12 mb-56 md:mb-32">
+      <section className="mt-12 mb-32">
         <h2 className="text-3xl font-semibold">Contact</h2>
         <div className="mt-2 text-slate-700">
           <p>Want to get in touch?</p>
