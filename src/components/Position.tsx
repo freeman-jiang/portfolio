@@ -22,7 +22,7 @@ export const Position = ({
         </a>
       </h4>
       {description && (
-        <p className="mt-1 text-lg text-gray-500">{description}</p>
+        <p className="mt-1 text-lg text-slate-500">{description}</p>
       )}
     </div>
   );
