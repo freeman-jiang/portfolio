@@ -28,7 +28,7 @@ export const Project = ({
   return (
     <div className="rounded-xl p-5 py-6 shadow-lg">
       <div className="flex flex-row flex-wrap items-start justify-between gap-1 xs:items-center">
-        <h5 className="text-xl font-bold">{name}</h5>
+        <h5 className="text-2xl font-bold">{name}</h5>
         {badgeName && (
           <div className="flex gap-3">
             <a
@@ -39,14 +39,16 @@ export const Project = ({
                 badgeUrl
                   ? "bg-sky-100 text-sky-900 focus:ring-sky-200"
                   : "bg-slate-100 text-slate-600 focus:ring-slate-200"
-              } px-4 py-1.5 text-[0.65rem] font-bold  uppercase outline-none  focus:ring`}
+              } px-4 py-1.5 text-[0.72rem] font-bold  uppercase outline-none focus:ring`}
             >
               {badgeName}
             </a>
           </div>
         )}
       </div>
-      <p className="mt-3 whitespace-pre-wrap text-slate-500">{description}</p>
+      <p className="mt-3 whitespace-pre-wrap text-lg text-slate-500">
+        {description}
+      </p>
 
       <div
         className="relative mt-5 aspect-[16/10] cursor-pointer overflow-hidden rounded-xl"
@@ -107,7 +109,7 @@ export const Project = ({
           {({ open }) => (
             <>
               <Disclosure.Button
-                className={`peer flex w-full items-center justify-between rounded-xl bg-slate-100 px-4 py-2 text-left text-sm font-semibold text-slate-500 hover:bg-slate-200 focus:outline-none focus-visible:ring focus-visible:ring-slate-300 ${
+                className={`peer flex w-full items-center justify-between rounded-xl bg-slate-100 px-4 py-2 text-left font-semibold text-slate-500 hover:bg-slate-200 focus:outline-none focus-visible:ring focus-visible:ring-slate-300 ${
                   open ? "rounded-b-none" : ""
                 }`}
               >
@@ -118,7 +120,7 @@ export const Project = ({
                   } h-5 w-5 text-slate-500`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="focus rounded-xl rounded-t-none bg-slate-50 px-4 text-sm text-slate-500 peer-focus-visible:ring peer-focus-visible:ring-slate-300">
+              <Disclosure.Panel className="focus rounded-xl rounded-t-none bg-slate-50 px-4 text-slate-500 peer-focus-visible:ring peer-focus-visible:ring-slate-300">
                 {/* Mobile View */}
                 <div className="flex flex-col gap-4 pt-4 pb-5 md:hidden">
                   {technologies && (
@@ -213,7 +215,7 @@ export const Project = ({
               href={demoUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center rounded-xl bg-blue-400 px-4 py-2 text-sm font-semibold text-white outline-none hover:bg-[#70aefa] focus:ring focus:ring-blue-200"
+              className="flex items-center rounded-xl bg-blue-400 px-4 py-2 font-semibold text-white outline-none hover:bg-[#70aefa] focus:ring focus:ring-blue-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +239,7 @@ export const Project = ({
               href={githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center rounded-xl bg-slate-700 px-3 py-2 text-sm font-semibold text-white outline-none hover:bg-slate-600 focus:ring focus:ring-slate-300"
+              className="flex items-center rounded-xl bg-slate-700 px-3 py-2 font-semibold text-white outline-none hover:bg-slate-600 focus:ring focus:ring-slate-300"
             >
               <svg
                 viewBox="0 0 24 24"

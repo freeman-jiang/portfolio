@@ -40,15 +40,15 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <main className="mx-auto max-w-3xl px-4 pt-8 text-slate-900 xs:px-6 sm:px-8 md:pt-16">
       <section>
         <h1 className="text-4xl font-semibold">{"Hi, I'm Freeman."}</h1>
-        <p className="mt-2 max-w-lg">
+        <p className="mt-3 max-w-xl text-lg">
           {
             "I'm a CS student at the University of Waterloo and full stack engineer."
           }
         </p>
-        <p className="mt-2 max-w-lg md:mt-0">
+        <p className="mt-2 max-w-xl text-lg md:mt-0">
           {"I build beautiful and performant applications end to end."}
         </p>
-        <p className="mt-4">
+        <p className="mt-4 text-lg">
           {"My weapons of choice are: "}
           <br />
           <span className="font-bold text-blue-400">TypeScript</span> +{" "}
@@ -86,7 +86,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
       <section className="mt-12 mb-32">
         <h2 className="text-3xl font-semibold">Contact</h2>
-        <div className="mt-2 text-slate-700">
+        <div className="mt-2 text-lg text-slate-700">
           <p>Want to get in touch?</p>
           <p className="mt-1">
             Send an email to{" "}
