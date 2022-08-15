@@ -28,7 +28,7 @@ export const Project = ({
   return (
     <div className="rounded-xl p-5 py-6 shadow-lg">
       <div className="flex flex-row flex-wrap items-start justify-between gap-1 xs:items-center">
-        <h5 className="text-lg font-bold md:text-xl">{name}</h5>
+        <h5 className="text-xl font-bold">{name}</h5>
         {badgeName && (
           <div className="flex gap-3">
             <a
@@ -39,16 +39,14 @@ export const Project = ({
                 badgeUrl
                   ? "bg-sky-100 text-sky-900 focus:ring-sky-200"
                   : "bg-slate-100 text-slate-600 focus:ring-slate-200"
-              } px-4 py-1.5 text-[0.6rem] font-bold uppercase  outline-none focus:ring  md:text-[0.65rem]`}
+              } px-4 py-1.5 text-[0.65rem] font-bold  uppercase outline-none  focus:ring`}
             >
               {badgeName}
             </a>
           </div>
         )}
       </div>
-      <p className="mt-3 whitespace-pre-wrap text-sm text-slate-500 md:text-base">
-        {description}
-      </p>
+      <p className="mt-3 whitespace-pre-wrap text-slate-500">{description}</p>
 
       <div
         className="relative mt-5 aspect-[16/10] cursor-pointer overflow-hidden rounded-xl"
@@ -109,13 +107,11 @@ export const Project = ({
           {({ open }) => (
             <>
               <Disclosure.Button
-                className={`peer flex w-full justify-between rounded-xl ${
+                className={`peer flex w-full items-center justify-between rounded-xl bg-slate-100 px-4 py-2 text-left text-sm font-semibold text-slate-500 hover:bg-slate-200 focus:outline-none focus-visible:ring focus-visible:ring-slate-300 ${
                   open ? "rounded-b-none" : ""
-                } bg-slate-100 px-4 py-2 text-left text-sm font-medium text-slate-500 hover:bg-slate-200 focus:outline-none focus-visible:ring focus-visible:ring-slate-300`}
+                }`}
               >
-                <div className="flex items-center gap-2 font-semibold">
-                  <span>Learn more</span>
-                </div>
+                <span>Learn more</span>
                 <ChevronUpIcon
                   className={`${
                     open ? "" : "rotate-180 transform"

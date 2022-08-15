@@ -39,16 +39,14 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <main className="mx-auto max-w-3xl px-4 pt-8 text-slate-900 xs:px-6 sm:px-8 md:pt-16">
       <section>
-        <h1 className="text-3xl font-semibold md:text-4xl">
-          {"Hi, I'm Freeman."}
-        </h1>
+        <h1 className="text-4xl font-semibold">{"Hi, I'm Freeman."}</h1>
         <p className="mt-2 max-w-lg">
           {
             "I'm a CS student at the University of Waterloo and full stack engineer."
           }
         </p>
         <p className="mt-2 max-w-lg md:mt-0">
-          {"I build beautiful and performant applications end-to-end."}
+          {"I build beautiful and performant applications end to end."}
         </p>
         <p className="mt-4">
           {"My weapons of choice are: "}
