@@ -51,10 +51,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <p className="mt-4 text-lg">
           {"My weapons of choice are: "}
           <br />
-          <span className="font-bold text-blue-400">TypeScript</span> +{" "}
+          <span className="font-bold text-blue-500">TypeScript</span> +{" "}
           <span className="font-bold text-slate-900">Next.js</span> +{" "}
-          <span className="font-bold text-purple-400">Prisma</span> +{" "}
-          <span className="font-bold text-pink-400">GraphQL</span>
+          <span className="font-bold text-purple-500">Prisma</span> +{" "}
+          <span className="font-bold text-pink-500">GraphQL</span>
         </p>
       </section>
       <div className="flex flex-col md:flex-row md:gap-12">
