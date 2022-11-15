@@ -60,6 +60,12 @@ const Home = ({
           <span className="font-bold text-purple-500">Prisma</span> +{" "}
           <span className="font-bold text-pink-500">GraphQL</span>
         </p>
+        <p className="mt-4 text-lg">
+          {"...but I'm looking to do more backend with"}
+          <br />
+          <span className="font-bold text-sky-500">Go</span> +{" "}
+          <span className="font-bold text-orange-600">Rust</span>
+        </p>
       </section>
       <div className="flex flex-col md:flex-row md:gap-12">
         {currentPositions ? (
