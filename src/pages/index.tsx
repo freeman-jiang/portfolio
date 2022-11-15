@@ -3,7 +3,7 @@ import {
   IPositionListFields,
   IProjectListFields,
 } from "@/types/generated/contentful";
-import { InferGetStaticPropsType, NextPage } from "next";
+import { InferGetStaticPropsType } from "next";
 import { Position } from "@/components/Position";
 import { Project } from "@/components/Project";
 
@@ -26,16 +26,20 @@ export const getStaticProps = async () => {
   const { projects } = projectList.fields;
 
   return {
-    props: { currentPositions, pastPositions, projects },
+    props: {
+      currentPositions: currentPositions ?? null,
+      pastPositions,
+      projects,
+    },
     revalidate: 10,
   };
 };
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const Home = ({
   currentPositions,
   pastPositions,
   projects,
-}) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <main className="mx-auto max-w-3xl px-4 pt-8 text-slate-900 xs:px-6 sm:px-8 md:pt-16">
       <section>
@@ -58,22 +62,35 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         </p>
       </section>
       <div className="flex flex-col md:flex-row md:gap-12">
-        <section className="mt-12 md:w-1/2">
-          <h2 className="text-3xl font-semibold">Currently</h2>
-          <div className="mt-4 flex flex-col gap-4">
-            {currentPositions?.map((position) => (
-              <Position key={position.sys.id} {...position.fields} />
-            ))}
-          </div>
-        </section>
-        <section className="mt-12 md:w-1/2">
-          <h2 className="text-3xl font-semibold">Past</h2>
-          <div className="mt-4 flex flex-col gap-4">
-            {pastPositions?.map((position) => (
-              <Position key={position.sys.id} {...position.fields} />
-            ))}
-          </div>
-        </section>
+        {currentPositions ? (
+          <>
+            <section className="mt-12 md:w-1/2">
+              <h2 className="text-3xl font-semibold">Currently</h2>
+              <div className="mt-4 flex flex-col gap-4">
+                {currentPositions?.map((position) => (
+                  <Position key={position.sys.id} {...position.fields} />
+                ))}
+              </div>
+            </section>
+            <section className="mt-12 md:w-1/2">
+              <h2 className="text-3xl font-semibold">Past</h2>
+              <div className="mt-4 flex flex-col gap-4">
+                {pastPositions?.map((position) => (
+                  <Position key={position.sys.id} {...position.fields} />
+                ))}
+              </div>
+            </section>
+          </>
+        ) : (
+          <section className="mt-12 md:w-[45ch]">
+            <h2 className="text-3xl font-semibold">Past</h2>
+            <div className="mt-4 flex flex-col gap-4">
+              {pastPositions?.map((position) => (
+                <Position key={position.sys.id} {...position.fields} />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
       <section className="mt-12">
         <h2 className="text-3xl font-semibold">Work</h2>

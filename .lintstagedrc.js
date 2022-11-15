@@ -7,11 +7,11 @@ module.exports = {
   "**/*.(ts|tsx|js|_eslint)": (filenames) =>
     `npx eslint ${filenames.join(" ")}`,
 
-  // Check TS & JS files with Prettier
+  // Format TS & JS files with Prettier
   "**/*.(ts|tsx|js|_prettier)": (filenames) =>
-    `npx prettier --check ${filenames.join(" ")}`,
+    `npx prettier --write ${filenames.join(" ")}`,
 
-  // Check Markdown & JSON files with Prettier
+  // Format Markdown & JSON files with Prettier
   "**/*.(md|json)": (filenames) =>
-    `npx prettier --check ${filenames.join(" ")}`,
+    `npx prettier --write ${filenames.join(" ")}`,
 };
