@@ -61,7 +61,7 @@ const Home = ({
           <span className="font-bold text-pink-500">GraphQL</span>
         </p>
         <p className="mt-4 text-lg">
-          {"...but I'm currently building backends with"}
+          {"...but I'm currently focused on backend engineering with"}
           <br />
           <span className="font-bold text-sky-500">Go</span> +{" "}
           <span className="font-bold text-orange-600">Rust</span>
