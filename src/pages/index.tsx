@@ -4,8 +4,8 @@ import {
   IProjectListFields,
 } from "@/types/generated/contentful";
 import { InferGetStaticPropsType } from "next";
-import { Position } from "@/components/Position";
 import { Project } from "@/components/Project";
+import { Positions } from "@/components/Positions";
 
 export const getStaticProps = async () => {
   const getPositionList = client.getEntry<IPositionListFields>(
@@ -16,28 +16,24 @@ export const getStaticProps = async () => {
     "6G0lD5lWI23RDAWE9XrU3G"
   );
 
-  const [positionList, projectList] = await Promise.all([
+  const [positions, projectList] = await Promise.all([
     getPositionList,
     getProjectList,
   ]);
 
-  const { currentPositions } = positionList.fields;
-  const { pastPositions } = positionList.fields;
   const { projects } = projectList.fields;
 
   return {
     props: {
-      currentPositions: currentPositions ?? null,
-      pastPositions,
       projects,
+      positions,
     },
     revalidate: 10,
   };
 };
 
 const Home = ({
-  currentPositions,
-  pastPositions,
+  positions,
   projects,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -68,35 +64,7 @@ const Home = ({
         </p>
       </section>
       <div className="flex flex-col md:flex-row md:gap-12">
-        {currentPositions ? (
-          <>
-            <section className="mt-12 md:w-1/2">
-              <h2 className="text-3xl font-semibold">Currently</h2>
-              <div className="mt-4 flex flex-col gap-4">
-                {currentPositions?.map((position) => (
-                  <Position key={position.sys.id} {...position.fields} />
-                ))}
-              </div>
-            </section>
-            <section className="mt-12 md:w-1/2">
-              <h2 className="text-3xl font-semibold">Past</h2>
-              <div className="mt-4 flex flex-col gap-4">
-                {pastPositions?.map((position) => (
-                  <Position key={position.sys.id} {...position.fields} />
-                ))}
-              </div>
-            </section>
-          </>
-        ) : (
-          <section className="mt-12 md:w-[45ch]">
-            <h2 className="text-3xl font-semibold">Past</h2>
-            <div className="mt-4 flex flex-col gap-4">
-              {pastPositions?.map((position) => (
-                <Position key={position.sys.id} {...position.fields} />
-              ))}
-            </div>
-          </section>
-        )}
+        <Positions positions={positions.fields} />
       </div>
       <section className="mt-12">
         <h2 className="text-3xl font-semibold">Work</h2>
