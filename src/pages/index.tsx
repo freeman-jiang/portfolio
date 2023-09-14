@@ -49,18 +49,12 @@ const Home = ({
           {"I build beautiful and performant applications end to end."}
         </p>
         <p className="mt-4 text-lg">
-          {"My weapons of choice are: "}
+          {"Some things I enjoy working with:"}
           <br />
-          <span className="font-bold text-blue-500">TypeScript</span> +{" "}
-          <span className="font-bold text-slate-900">Next.js</span> +{" "}
-          <span className="font-bold text-purple-500">Prisma</span> +{" "}
-          <span className="font-bold text-pink-500">GraphQL</span>
-        </p>
-        <p className="mt-4 text-lg">
-          {"...but I'm currently focused on backend engineering with"}
-          <br />
-          <span className="font-bold text-sky-500">Go</span> +{" "}
-          <span className="font-bold text-orange-600">Rust</span>
+          <span className="font-bold text-orange-600">Rust</span>,
+          <span className="font-bold text-sky-500"> Go</span>,
+          <span className="font-bold text-blue-500"> TypeScript</span>,
+          <span className="font-bold text-slate-900"> Next.js</span>.
         </p>
       </section>
       <div className="flex flex-col md:flex-row md:gap-12">
