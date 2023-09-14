@@ -10,18 +10,15 @@ export const Positions = ({ positions }: Props) => {
   const renderRow = ([p1, p2]: IPosition[]) => {
     return (
       <div
-        className="flex"
+        className="flex flex-col gap-4 md:flex-row md:gap-0"
         key={`${p1.fields.companyUrl}-${p2.fields.companyUrl}`}
       >
         <section className="md:w-1/2">
-          <div className="flex flex-col gap-4">
-            <Position key={p1.fields.companyUrl} {...p1.fields} />
-          </div>
+          <Position key={p1.fields.companyUrl} {...p1.fields} />
         </section>
+        <div className="hidden px-3.5 md:block"></div>
         <section className="md:w-1/2">
-          <div className="flex flex-col gap-4">
-            <Position key={p2.fields.companyUrl} {...p2.fields} />
-          </div>
+          <Position key={p2.fields.companyUrl} {...p2.fields} />
         </section>
       </div>
     );
