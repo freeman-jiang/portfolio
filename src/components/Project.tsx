@@ -1,9 +1,9 @@
 import Image from "next/image";
 
+import { extractContentfulAssetUrl } from "@/contentful/utils";
+import { IProjectFields } from "@/types/generated/contentful";
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/solid";
-import { IProjectFields } from "@/types/generated/contentful";
-import { extractContentfulAssetUrl } from "@/contentful/utils";
 import { Fragment, useState } from "react";
 
 export const Project = ({
@@ -26,7 +26,7 @@ export const Project = ({
   };
 
   return (
-    <div className="rounded-xl p-5 py-6 shadow-lg">
+    <div className="relative z-20 rounded-xl p-5 py-6 shadow-lg">
       <div className="flex flex-row flex-wrap items-start justify-between gap-1 xs:items-center">
         <h4 className="text-2xl font-bold">{name}</h4>
         {badgeName && (

@@ -1,11 +1,12 @@
+import { Gradients } from "@/components/Gradients";
+import { Positions } from "@/components/Positions";
+import { Project } from "@/components/Project";
 import { client } from "@/contentful/client";
 import {
   IPositionListFields,
   IProjectListFields,
 } from "@/types/generated/contentful";
 import { InferGetStaticPropsType } from "next";
-import { Project } from "@/components/Project";
-import { Positions } from "@/components/Positions";
 
 export const getStaticProps = async () => {
   const getPositionList = client.getEntry<IPositionListFields>(
@@ -38,6 +39,7 @@ const Home = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <main className="mx-auto max-w-3xl px-4 pt-8 text-slate-900 xs:px-6 sm:px-8 md:pt-16">
+      <Gradients />
       <section>
         <h1 className="text-4xl font-semibold">{"Hi, I'm Freeman."}</h1>
         <p className="mt-3 max-w-xl text-lg">
