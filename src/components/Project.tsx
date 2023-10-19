@@ -26,7 +26,7 @@ export const Project = ({
   };
 
   return (
-    <div className="relative z-20 rounded-xl p-5 py-6 shadow-lg">
+    <div className="relative rounded-xl p-5 py-6 shadow-lg">
       <div className="flex flex-row flex-wrap items-start justify-between gap-1 xs:items-center">
         <h4 className="text-2xl font-bold">{name}</h4>
         {badgeName && (
@@ -62,7 +62,7 @@ export const Project = ({
         />
       </div>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="z-100 relative" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-200"
