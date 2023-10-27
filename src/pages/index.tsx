@@ -40,17 +40,30 @@ const Home = ({
   return (
     <main className="mx-auto max-w-3xl px-4 pt-8 text-slate-900 xs:px-6 sm:px-8 md:pt-16">
       <Gradients />
-      <section>
+      <section className="text-lg">
         <h1 className="text-4xl font-semibold">{"Hi, I'm Freeman."}</h1>
-        <p className="mt-3 max-w-xl text-lg">
+        <p className="mt-3 max-w-xl">
           {
             "I'm a CS student at the University of Waterloo and full stack engineer."
           }
         </p>
-        <p className="mt-2 max-w-xl text-lg md:mt-0">
+        <p className="mt-2 max-w-xl md:mt-0">
           {"I build beautiful and performant applications end to end."}
         </p>
-        <p className="mt-4 text-lg">
+        <p className="mt-2">
+          For fun, I also{" "}
+          <a
+            href="https://photos.freemanjiang.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="cursor-pointer font-semibold underline decoration-pink-500 decoration-2">
+              take photos
+            </span>
+          </a>
+          .
+        </p>
+        <p className="mt-4">
           {"Some things I enjoy working with:"}
           <br />
           <span className="font-bold text-orange-600">Rust</span>,
