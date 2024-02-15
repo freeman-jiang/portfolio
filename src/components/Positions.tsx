@@ -1,5 +1,9 @@
 import { Position } from "@/components/Position";
-import { IPosition, IPositionListFields } from "@/types/generated/contentful";
+import {
+  IPosition,
+  IPositionFields,
+  IPositionListFields,
+} from "@/types/generated/contentful";
 import { chunkArray } from "@/utils/utils";
 
 interface Props {
@@ -8,17 +12,19 @@ interface Props {
 
 export const Positions = ({ positions }: Props) => {
   const renderRow = ([p1, p2]: IPosition[]) => {
+    const p1Fields = p1.fields as IPositionFields;
+    const p2Fields = p2.fields as IPositionFields;
     return (
       <div
         className="flex flex-col gap-4 md:flex-row md:gap-0"
-        key={`${p1.fields.companyUrl}-${p2.fields.companyUrl}`}
+        key={`${p1Fields.companyUrl}-${p2Fields.companyUrl}`}
       >
         <section className="md:w-1/2">
-          <Position key={p1.fields.companyUrl} {...p1.fields} />
+          <Position key={p1Fields.companyUrl} {...p1Fields} />
         </section>
         <div className="hidden px-3.5 md:block"></div>
         <section className="md:w-1/2">
-          <Position key={p2.fields.companyUrl} {...p2.fields} />
+          <Position key={p2Fields.companyUrl} {...p2Fields} />
         </section>
       </div>
     );
@@ -44,7 +50,10 @@ export const Positions = ({ positions }: Props) => {
         <h2 className="text-3xl font-semibold">Currently</h2>
         <div className="mt-4 flex flex-col gap-4">
           {currentPositions.map((position) => (
-            <Position key={position.sys.id} {...position.fields} />
+            <Position
+              key={position.sys.id}
+              {...(position.fields as IPositionFields)}
+            />
           ))}
         </div>
       </section>
@@ -52,7 +61,10 @@ export const Positions = ({ positions }: Props) => {
         <h2 className="text-3xl font-semibold">Past</h2>
         <div className="mt-4 flex flex-col gap-4">
           {pastPositions?.map((position) => (
-            <Position key={position.sys.id} {...position.fields} />
+            <Position
+              key={position.sys.id}
+              {...(position.fields as IPositionFields)}
+            />
           ))}
         </div>
       </section>

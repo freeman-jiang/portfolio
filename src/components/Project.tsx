@@ -55,8 +55,8 @@ export const Project = ({
         onClick={openModal}
       >
         <Image
-          layout="fill"
-          objectFit="cover"
+          className="object-cover"
+          fill
           src={extractContentfulAssetUrl(image)}
           alt={`${name} project cover image`}
         />

@@ -4,25 +4,25 @@ import { Project } from "@/components/Project";
 import { client } from "@/contentful/client";
 import {
   IPositionListFields,
-  IProjectListFields,
+  IProject,
+  IProjectFields,
 } from "@/types/generated/contentful";
 import { InferGetStaticPropsType } from "next";
 
 export const getStaticProps = async () => {
-  const getPositionList = client.getEntry<IPositionListFields>(
-    "2GrZxy0No7mWazsNhou3Ez"
-  );
+  const getPositionList = client.getEntry("2GrZxy0No7mWazsNhou3Ez");
 
-  const getProjectList = client.getEntry<IProjectListFields>(
-    "6G0lD5lWI23RDAWE9XrU3G"
-  );
+  const getProjectList = client.getEntry("6G0lD5lWI23RDAWE9XrU3G");
 
-  const [positions, projectList] = await Promise.all([
+  const [positionsEntry, projectListEntry] = await Promise.all([
     getPositionList,
     getProjectList,
   ]);
 
-  const { projects } = projectList.fields;
+  const projects = projectListEntry.fields.projects as IProject[];
+
+  // @ts-ignore
+  const positions = positionsEntry.fields as IPositionListFields;
 
   return {
     props: {
@@ -73,13 +73,16 @@ const Home = ({
         </p>
       </section>
       <div className="flex flex-col md:flex-row md:gap-12">
-        <Positions positions={positions.fields} />
+        <Positions positions={positions} />
       </div>
       <section className="mt-12">
         <h2 className="text-3xl font-semibold">Work</h2>
         <div className="mt-4 flex flex-col gap-6">
           {projects.map((project) => (
-            <Project key={project.sys.id} {...project.fields} />
+            <Project
+              key={project.sys.id}
+              {...(project.fields as IProjectFields)}
+            />
           ))}
         </div>
       </section>
