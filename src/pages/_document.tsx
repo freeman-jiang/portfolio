@@ -1,5 +1,5 @@
-import { Html, Head, Main, NextScript } from "next/document";
 import { config } from "dotenv-safe";
+import { Head, Html, Main, NextScript } from "next/document";
 
 config();
 

@@ -2,9 +2,11 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import "../styles/globals.css";
 
+import { GeistSans } from "geist/font/sans";
+
 function PortfolioApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <main className={GeistSans.className}>
       <Head>
         <title>Freeman Jiang - Portfolio</title>
         <meta
@@ -15,7 +17,7 @@ function PortfolioApp({ Component, pageProps }: AppProps) {
         <meta name="author" content="Freeman Jiang" />
       </Head>
       <Component {...pageProps} />
-    </>
+    </main>
   );
 }
 
