@@ -38,7 +38,7 @@ export const Positions = ({ positions }: Props) => {
 
     return (
       <div className="mt-12">
-        <h2 className="text-3xl font-semibold">Past</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">Past</h2>
         <div className="mt-4 flex flex-col gap-4">{pairs.map(renderRow)}</div>
       </div>
     );
@@ -47,7 +47,7 @@ export const Positions = ({ positions }: Props) => {
   return (
     <>
       <section className="mt-12 md:w-1/2">
-        <h2 className="text-3xl font-semibold">Currently</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">Currently</h2>
         <div className="mt-4 flex flex-col gap-4">
           {currentPositions.map((position) => (
             <Position
@@ -58,7 +58,7 @@ export const Positions = ({ positions }: Props) => {
         </div>
       </section>
       <section className="mt-12 md:w-1/2">
-        <h2 className="text-3xl font-semibold">Past</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">Past</h2>
         <div className="mt-4 flex flex-col gap-4">
           {pastPositions?.map((position) => (
             <Position

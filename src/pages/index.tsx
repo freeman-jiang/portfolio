@@ -41,11 +41,11 @@ const Home = ({
     <main className="mx-auto max-w-3xl px-4 pt-8 text-slate-900 xs:px-6 sm:px-8 md:pt-16">
       <Gradients />
       <section className="text-lg">
-        <h1 className="text-4xl font-semibold">{"Hi, I'm Freeman."}</h1>
+        <h1 className="text-4xl font-semibold tracking-tight">
+          {"Freeman Jiang"}
+        </h1>
         <p className="mt-3 max-w-xl">
-          {
-            "I'm a CS student at the University of Waterloo and full stack engineer."
-          }
+          {"Computer Science @ University of Waterloo"}
         </p>
         <p className="mt-2 max-w-xl md:mt-0">
           {"I build beautiful and performant applications end to end."}
@@ -64,7 +64,7 @@ const Home = ({
           .
         </p>
         <p className="mt-4">
-          {"Some things I enjoy working with:"}
+          {"I like working with:"}
           <br />
           <span className="font-bold text-orange-600">Rust</span>,
           <span className="font-bold text-sky-500"> Go</span>,
@@ -76,7 +76,7 @@ const Home = ({
         <Positions positions={positions} />
       </div>
       <section className="mt-12">
-        <h2 className="text-3xl font-semibold">Work</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">Work</h2>
         <div className="mt-4 flex flex-col gap-6">
           {projects.map((project) => (
             <Project
@@ -88,7 +88,7 @@ const Home = ({
       </section>
 
       <section className="mt-12 mb-32">
-        <h2 className="text-3xl font-semibold">Contact</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">Contact</h2>
         <div className="mt-2 text-lg text-slate-700">
           <p>Want to get in touch?</p>
           <p className="mt-1">
@@ -102,7 +102,7 @@ const Home = ({
             or shoot me a{" "}
             <a
               className="font-medium decoration-cyan-400 decoration-2 underline-offset-2 outline-none hover:underline focus:underline"
-              href="https://twitter.com/freemanxjiang"
+              href="https://twitter.com/freemanjiangg"
               target="_blank"
               rel="noreferrer"
             >

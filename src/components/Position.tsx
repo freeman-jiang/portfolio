@@ -9,7 +9,7 @@ export const Position = ({
 }: IPositionFields) => {
   return (
     <div>
-      <h4 className="text-xl">
+      <h4 className="text-xl tracking-tight">
         <span className="font-bold">{role}</span>
         {isFounder ? " of " : " at "}
         <a
