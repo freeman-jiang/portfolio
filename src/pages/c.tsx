@@ -78,7 +78,7 @@ const Contact = ({
             .
           </h1>
         </div>
-        <div className="mt-4 text-lg">It's great to meet you!</div>
+        <div className="mt-4 text-lg">It's nice to meet you!</div>
 
         <div className="mt-4 space-y-4">
           {socialList.fields.items.map(({ fields: { link, text } }) => (
