@@ -18,7 +18,7 @@ export const ContactGradients = () => {
         <div className="animation-delay-4000 absolute -bottom-8 left-20 h-[60vh] w-[18vw] animate-blob rounded-full bg-emerald-200 mix-blend-multiply blur-[100px] filter"></div>
         <div className="animation-delay-6000 absolute -bottom-8 right-20 h-[60vh] w-[18vw] animate-blob rounded-full bg-purple-200 mix-blend-multiply blur-[100px] filter"></div>
       </div>
-      <div className="lg:hidden">
+      <div className="hidden">
         <div className="-left-10 absolute h-24 w-24 animate-blob rounded-full bg-emerald-300 mix-blend-multiply blur-2xl filter" />
         <div className="absolute -right-10 h-24 w-24 animate-blob rounded-full bg-sky-300 mix-blend-multiply blur-2xl filter" />
         <div className="-left-10 -bottom-10 absolute h-14 w-44 animate-blob rounded-full bg-indigo-300 mix-blend-multiply blur-3xl filter" />
