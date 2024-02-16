@@ -82,7 +82,7 @@ const Contact = ({
           {socialList.fields.items.map(({ fields: { link, text } }) => (
             <a
               key={link}
-              className="block rounded-xl px-3 py-2 hover:bg-stone-100 active:bg-emerald-50 active:border-emerald-500 border-2 border-stone-200"
+              className="block rounded-xl px-3 py-2 hover:bg-stone-100 border-2 border-stone-200"
               href={link}
               target="_blank"
             >
