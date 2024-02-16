@@ -96,7 +96,7 @@ const Contact = ({
           ))}
         </div>
         <h3 className="mt-8 text-lg md:text-xl font-semibold tracking-tight">
-          Some interests <span className="ml-1">🌱</span>
+          My interests <span className="ml-1">🌱</span>
         </h3>
         <ul className="list-disc list-inside mt-1 text-stone-600">
           {interestList.fields.items.map(({ fields: { name, link } }) => (
