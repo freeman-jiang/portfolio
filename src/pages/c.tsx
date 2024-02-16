@@ -65,7 +65,7 @@ const Contact = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <main className="flex justify-center selection:bg-emerald-200">
-      <div className="min-h-screen max-w-md py-4 w-full px-10">
+      <div className="min-h-screen max-w-md py-4 w-full px-10 pb-96">
         <div className="text-4xl font-semibold tracking-tighter flex flex-col items-center">
           <h1 className="mt-4 flex">Hey there,</h1>
           <h1>
