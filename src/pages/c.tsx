@@ -64,13 +64,13 @@ const Contact = ({
   interestList,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <main className="flex justify-center">
+    <main className="flex justify-center selection:bg-emerald-200">
       <div className="min-h-screen max-w-md py-4 w-full px-10">
         <div className="text-4xl font-semibold tracking-tighter flex flex-col items-center">
           <h1 className="mt-4 flex">Hey there,</h1>
           <h1>
             I'm{" "}
-            <a href="/" className="text-emerald-500">
+            <a href="/" className="text-emerald-500 selection:text-emerald-800">
               Freeman
             </a>
             .
@@ -82,7 +82,7 @@ const Contact = ({
           {socialList.fields.items.map(({ fields: { link, text } }) => (
             <a
               key={link}
-              className="block rounded-xl px-3 py-2 border-2 border-stone-200"
+              className="block rounded-xl px-3 py-2 hover:bg-stone-100 active:bg-emerald-50 active:border-emerald-500 border-2 border-stone-200"
               href={link}
               target="_blank"
             >
