@@ -45,11 +45,15 @@ export const Positions = ({ positions }: Props) => {
   const pastPairs = chunkArray(pastPositions, 2);
 
   return (
-    <div className="mt-10">
-      <h2 className="text-3xl font-semibold tracking-tight">Now</h2>
-      <div className="mt-4 flex flex-col gap-4">
-        {currentPairs.map(renderRow)}
-      </div>
+    <div>
+      {currentPairs.length !== 0 && (
+        <>
+          <h2 className="text-3xl font-semibold tracking-tight mt-8">Now</h2>
+          <div className="mt-4 flex flex-col gap-4">
+            {currentPairs.map(renderRow)}
+          </div>
+        </>
+      )}
       <h2 className="text-3xl font-semibold tracking-tight mt-8">Past</h2>
       <div className="mt-4 flex flex-col gap-4">{pastPairs.map(renderRow)}</div>
     </div>
