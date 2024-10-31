@@ -51,14 +51,24 @@ const Home = ({
           {"I build beautiful and performant applications end to end."}
         </p>
         <p className="mt-2">
-          For fun, I also{" "}
+          {"I also "}
           <a
             href="https://photos.freemanjiang.com/"
             target="_blank"
             rel="noreferrer"
           >
-            <span className="cursor-pointer font-semibold underline decoration-pink-500 decoration-2">
+            <span className="cursor-pointer font-semibold underline decoration-pink-400 decoration-2 transition-all hover:decoration-pink-600">
               take photos
+            </span>
+          </a>
+          {" and "}
+          <a
+            href="https://www.youtube.com/watch?v=fppsP2cZjGg"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="cursor-pointer font-semibold underline decoration-emerald-300 decoration-2 transition-all hover:decoration-emerald-500">
+              make music
             </span>
           </a>
           .
