@@ -33,6 +33,8 @@ export const getStaticProps = async () => {
   };
 };
 
+const HOME_URL = "https://freemanjiang.com";
+
 const Home = ({
   positions,
   projects,
@@ -122,6 +124,29 @@ const Home = ({
           </p>
         </div>
       </section>
+
+      <footer className="flex justify-center mb-8">
+        <div className="flex items-center gap-2">
+          <a
+            className="rotate-180"
+            href={`https://cs.uwatering.com/#${HOME_URL}?nav=prev`}
+          >
+            ➵
+          </a>
+          <a
+            href={`https://cs.uwatering.com/#${HOME_URL}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://cs.uwatering.com/icon.black.svg"
+              alt="CS Webring"
+              className="w-6 h-auto opacity-80"
+            />
+          </a>
+          <a href={`https://cs.uwatering.com/#${HOME_URL}?nav=next`}>➵</a>
+        </div>
+      </footer>
     </main>
   );
 };
